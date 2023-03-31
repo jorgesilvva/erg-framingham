@@ -1,0 +1,768 @@
+<!-- Calculadora de Risco Glogal feita conforme Diretriz atualizada. -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>CALCULADORA DE RISCO GLOBAL</title>
+</head>
+
+<body>
+
+  <!-- Bloco 1: Modal com os resultado e formulário de envio de e-mail -->
+ 
+
+  <div class="containerForm">
+
+    <h1>Escore de Risco Global</h1>
+
+    <!-- Resultado -> Risco Baixo -->
+
+    <div class="modal_bxo">
+      <h2 id="resultado-bxo"></h2> <!-- Não mexer Recebe o resultado do script -->
+      <p><strong>Sessão reservada para o médico deve entrar com as recomendações. Informar algum tipo de tratamento,
+          alimentação, esporte, etc.</strong></p>
+      <p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+      <ul>
+        <li>Lorem ipsum dolor sit amet consectetuer.</li>
+      </ul>
+      <div id="btn-modal">
+        <button type="submit" id="btn-modal-bxo" name="btnModal" value="">Enviar resultado por e-mail</button>
+      </div>
+    </div>
+
+    <!-- Resultado -> Risco Intermediário -->
+
+    <div class="modal_itr">
+      <h2 id="resultado-itr"></h2> <!-- Não mexer Recebe o resultado do script -->
+      <p><strong>Sessão reservada para o médico deve entrar com as recomendações. Informar algum tipo de tratamento,
+          alimentação, esporte, etc.</strong></p>
+      <p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+      <ul>
+        <li>Lorem ipsum dolor sit amet consectetuer.</li>
+      </ul>
+      <div id="btn-modal">
+        <button type="submit" id="btn-modal-itr" name="btnModal" value="">Enviar resultado por e-mail</button>
+      </div>
+    </div>
+
+    <!-- Resultado -> Risco Alto -->
+
+    <div class="modal_alt">
+      <h2 id="resultado-alt"></h2> <!-- Não mexer Recebe o resultado do script -->
+      <p><strong>Sessão reservada para o médico deve entrar com as recomendações. Informar algum tipo de tratamento,
+          alimentação, esporte, etc.</strong></p>
+      <p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+      <ul>
+        <li>Lorem ipsum dolor sit amet consectetuer.</li>
+      </ul>
+      <div id="btn-modal">
+        <button type="submit" id="btn-modal-alt" name="btnModal" value="">Enviar resultado por e-mail</button>
+      </div>
+    </div>
+
+    <!-- Resultado -> Risco Muito Alto -->
+
+    <div class="modal_malt">
+      <h2 id="resultado-malt"></h2> <!-- Não mexer Recebe o resultado do script -->
+      <p><strong>Sessão reservada para o médico deve entrar com as recomendações. Informar algum tipo de tratamento,
+          alimentação, esporte, etc.</strong></p>
+      <p>Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+      <ul>
+        <li>Lorem ipsum dolor sit amet consectetuer.</li>
+      </ul>
+      <div id="btn_modal">
+        <button type="submit" id="btn-modal-malt" name="btnModal" value="">Enviar resultado por e-mail</button>
+      </div>
+    </div>
+
+    <!-- Formulário para envio de e-mail -->
+
+    <form class="modal_email" id="formEmail">
+      <h1>Por favor, informe os dados para contato.</h1>
+      <div>
+        <label><strong>Nome</strong></label><br>
+        <input type="text" id="form-nome" name="nome" placeholder="Nome completo" required="true" />
+      </div>
+
+      <div>
+        <label><strong>Email</strong></label><br>
+        <input type="email" id="form-email" name="email" placeholder="E-mail" required="true" />
+      </div>
+
+      <div>
+        <label><strong>Contato</strong></label>
+        <input type="tel" id="form-contato" name="contato" placeholder="(DDD) + (Número)" required="true" />
+      </div>
+
+      <div>
+        <button type="submit" id="btn-email" name="btnEmail" value="">Enviar resultado</button>
+      </div>
+    </form>
+
+  </div>
+
+  <!-- Fim do bloco 1, que inicia na linha 12 -->
+
+  <!-- Bloco 2: Formulário para a entrada dos dados. -->
+
+  <div class="containerForm">
+    <form class="form-Escore" id="formEscore" action="/" name="formCalcEscore" method="post">
+      <div>
+        <label><strong>Idade</strong></label><br>
+        <input type="number" id="form-field-idade" name="form_fields[idade]"
+          placeholder="Informe a idade do paciente em anos (acima de 30 anos)" min="30" required="true" />
+      </div>
+
+      <div>
+        <label><strong>Sexo</strong></label><br>
+        <input type="radio" id="form-field-sexo-0" name="form_fields[sexo]" value="Masculino" required="true" />
+        Masculino
+        <input type="radio" id="form-field-sexo-1" name="form_fields[sexo]" value="Feminino" required="true" /> Feminino
+      </div>
+
+      <div>
+        <label><strong>Colesterol Total</strong></label>
+        <input type="number" id="form-field-col_tot" name="form_fields[col_tot]" placeholder="mg/dL (ex: 160)"
+          required="true" />
+      </div>
+
+      <div>
+        <label><strong>Colesterol HDL</strong></label>
+        <input type="number" id="form-field-col_hdl" name="form_fields[col_hdl]" placeholder="mg/dL (ex: 35)"
+          required="true" />
+      </div>
+
+      <div>
+        <label><strong>Fumante?</strong></label><br>
+        <input type="radio" id="form-field-fumante-0" name="form_fields[fumante]" value="Sim" required="true" /> Sim
+        <input type="radio" id="form-field-fumante-1" name="form_fields[fumante]" value="Nao" required="true" /> Não
+      </div>
+
+      <div>
+        <label><strong>Pressão Arterial Sistólica</strong></label><br>
+        <input type="number" id="form-field-pressao" name="form_fields[pressao]" placeholder="mmHg (ex: 120)" min="105"
+          max="180" required="true" />
+      </div>
+
+      <div>
+        <label><strong>Possui doença aterosclerótica significativa (obstrução ≥ 50%) ou
+            equivalente?</strong></label><br>
+        <input type="radio" id="form-field-artereo-0" name="form_fields[ateros]" value="Sim" required="true" /> Sim
+        <input type="radio" id="form-field-artereo-1" name="form_fields[ateros]" value="Nao" required="true" /> Não
+      </div>
+
+      <div>
+        <label><strong>Paciente está em tratamento medicamentoso para a hipertensão arterial?</strong></label><br>
+        <input type="radio" id="form-field-tratamento-0" name="form_fields[tratamento]" value="Sim" required="true" />
+        Sim
+        <input type="radio" id="form-field-tratamento-1" name="form_fields[tratamento]" value="Nao" required="true" />
+        Não
+      </div>
+
+      <div>
+        <label><strong>Paciente é diabético</strong></label><br>
+        <input type="radio" id="form-field-tratamento-0" name="form_fields[diabetes]" value="Sim" required="true" /> Sim
+        <input type="radio" id="form-field-tratamento-1" name="form_fields[diabetes]" value="Nao" required="true" /> Não
+      </div>
+
+      <div>
+        <button type="submit" id="btn_escore" name="" value="">Calcular Escore de Risco Global</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Fim do Bloco 2, que inicia na linha 113 -->
+
+  <!-- Bloco 3: Código da Calculadora. -->
+
+  <script>
+
+    /* Cria um evento a partir do submit do Formulário de Entrada*/
+    document.getElementById('formEscore').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      /* Captura os Valores do Formulário de Entrada */
+      const ide = document.querySelector('#form-field-idade');
+      value = ide.value;
+      var idade = value;
+      console.log(idade);
+
+      const sex = document.querySelector('input[name="form_fields[sexo]"]:checked');
+      value = sex.value;
+      var sexo = value;
+      console.log(sexo);
+
+      const ctl = document.querySelector('#form-field-col_tot');
+      value = ctl.value;
+      var col_tot = value;
+      console.log(col_tot);
+
+      const chdl = document.querySelector('#form-field-col_hdl');
+      value = chdl.value;
+      var col_hdl = value;
+      console.log(col_hdl);
+
+      const fmte = document.querySelector('input[name="form_fields[fumante]"]:checked');
+      value = fmte.value;
+      var fumante = value;
+      console.log(fumante);
+
+      const pres = document.querySelector('#form-field-pressao');
+      value = pres.value;
+      var pressao = value;
+      console.log(pressao);
+
+      const art = document.querySelector('input[name="form_fields[ateros]"]:checked');
+      value = art.value;
+      var ateros = value;
+      console.log(ateros);
+
+      const trat = document.querySelector('input[name="form_fields[tratamento]"]:checked');
+      value = trat.value;
+      var tratamento = value;
+      console.log(tratamento);
+
+      const dbt = document.querySelector('input[name="form_fields[diabetes]"]:checked');
+      value = dbt.value;
+      var diabetes = value;
+      console.log(diabetes);
+
+
+      /* Inicio do Bloco Feminino */
+
+      if (sexo == 'Feminino') {
+
+        /* Calcula pontos Idade - Mulher */
+        function pontosIdadeM(idade) {
+          if (30 <= idade && idade <= 34) {
+            return resultado = 0;
+          } else if (35 <= idade && idade <= 39) {
+            return resultado = 2;
+          } else if (40 <= idade && idade <= 44) {
+            return resultado = 4;
+          } else if (45 <= idade && idade <= 49) {
+            return resultado = 5;
+          } else if (50 <= idade && idade <= 54) {
+            return resultado = 7;
+          } else if (55 <= idade && idade <= 59) {
+            return resultado = 8;
+          } else if (60 <= idade && idade <= 64) {
+            return resultado = 9;
+          } else if (65 <= idade && idade <= 69) {
+            return resultado = 10;
+          } else if (70 <= idade && idade <= 74) {
+            return resultado = 11;
+          } else if (idade >= 75) {
+            return resultado = 12;
+          }
+        }
+        pontosIdadeM(idade);
+        console.log(resultado);
+        var pts_idem = resultado
+
+        /* Calcula pontos Colesterol Total - Mulher */
+        function pontosColTotM(col_tot) {
+          if (col_tot < 160) {
+            return resultado = 0;
+          } else if (160 <= col_tot && col_tot <= 199) {
+            return resultado = 1;
+          } else if (200 <= col_tot && col_tot <= 239) {
+            return resultado = 3;
+          } else if (240 <= col_tot && col_tot <= 279) {
+            return resultado = 4;
+          } else if (col_tot >= 280) {
+            return resultado = 5;
+          }
+        }
+        pontosColTotM(col_tot);
+        console.log(resultado);
+        var pts_colt = resultado;
+
+        /* Calcula pontos Colesterol HDL - Mulher */
+        function pontosColHdlM(col_hdl) {
+          if (col_hdl >= 60) {
+            return resultado = -2;
+          } else if (50 <= col_hdl && col_hdl <= 59) {
+            return resultado = -1;
+          } else if (45 <= col_hdl && col_hdl <= 49) {
+            return resultado = 0;
+          } else if (35 <= col_hdl && col_hdl <= 44) {
+            return resultado = 1;
+          } else if (col_hdl < 35) {
+            return resultado = 2;
+          }
+        }
+        pontosColHdlM(col_hdl);
+        console.log(resultado);
+        var pts_colh = resultado;
+
+        /* Calcula pontos Pressão Tratada - Mulher */
+        function pontosPresTratM(pressao) {
+          if (pressao < 120) {
+            return resultado = -1;
+          } else if (120 <= pressao && pressao <= 129) {
+            return resultado = 2;
+          } else if (130 <= pressao && pressao <= 139) {
+            return resultado = 3;
+          } else if (140 <= pressao && pressao <= 149) {
+            return resultado = 5;
+          } else if (150 <= pressao && pressao <= 159) {
+            return resultado = 6;
+          } else if (pressao >= 160) {
+            return resultado = 7;
+          }
+        }
+        pontosPresTratM(pressao);
+        console.log(resultado);
+        var res_pst = resultado;
+
+        /* Calcula pontos Pressão Não Tratada  - Mulher */
+        function pontosPresNTratM(pressao) {
+          if (pressao < 120) {
+            return resultado = -3;
+          } else if (120 <= pressao && pressao <= 129) {
+            return resultado = 0;
+          } else if (130 <= pressao && pressao <= 139) {
+            return resultado = 1;
+          } else if (140 <= pressao && pressao <= 149) {
+            return resultado = 2;
+          } else if (150 <= pressao && pressao <= 159) {
+            return resultado = 4;
+          } else if (pressao >= 160) {
+            return resultado = 5;
+          }
+        }
+        pontosPresNTratM(pressao);
+        console.log(resultado);
+        var res_psn = resultado;
+
+        /* Calcula pontos Totais - Mulher: Arranjo com repetição de n elementos tomados de p em p -> Ar(n,p) = n^p, onde n=2 (sim e não) e p=3 (posições no agrupamento). Portanto, Ar(n,p) = 2^3 = 8 */
+        function pontosTotalM(pts_idem, pts_colt, pts_colh, fumante, res_pst, res_psn, tratamento, diabetes) {
+          if (fumante == 'Sim' && tratamento == 'Sim' && diabetes == 'Sim') {
+            return resultado = pts_idem + pts_colt + pts_colh + 3 + res_pst + 4;    // pontuação fumante Sim=3 e diabetes Sim=4  
+
+          } else if (fumante == 'Nao' && tratamento == 'Sim' && diabetes == 'Sim') {
+            return resultado = pts_idem + pts_colt + pts_colh + 0 + res_pst + 4;
+
+          } else if (fumante == 'Sim' && tratamento == 'Nao' && diabetes == 'Sim') {
+            return resultado = pts_idem + pts_colt + pts_colh + 3 + res_psn + 4;
+
+          } else if (fumante == 'Sim' && tratamento == 'Sim' && diabetes == 'Nao') {
+            return resultado = pts_idem + pts_colt + pts_colh + 3 + res_pst + 0;
+
+          } else if (fumante == 'Nao' && tratamento == 'Nao' && diabetes == 'Nao') {
+            return resultado = pts_idem + pts_colt + pts_colh + 0 + res_psn + 0;      // pontuação fumante Nao=0 e diabetes Nao=0
+
+          } else if (fumante == 'Sim' && tratamento == 'Nao' && diabetes == 'Nao') {
+            return resultado = pts_idem + pts_colt + pts_colh + 3 + res_psn + 0;
+
+          } else if (fumante == 'Nao' && tratamento == 'Sim' && diabetes == 'Nao') {
+            return resultado = pts_idem + pts_colt + pts_colh + 0 + res_pst + 0;
+
+          } else if (fumante == 'Nao' && tratamento == 'Nao' && diabetes == 'Sim') {
+            return resultado = pts_idem + pts_colt + pts_colh + 0 + res_psn + 4;
+          }
+        }
+        pontosTotalM(pts_idem, pts_colt, pts_colh, fumante, res_pst, res_psn, tratamento, diabetes);
+        console.log(resultado);
+        var soma = resultado;
+
+        /* Determina o Risco Global em % - Mulher */
+        function riscoGlobalM(pontos, soma, ateros) {
+          if (soma >= 21) {
+            return resultado = rsc[23];
+
+          } else if (ateros == 'Sim') {
+            return resultado = rsc[24];
+
+          } else if (soma < 21) {
+            const index = pontos.findIndex((ponto) => ponto == soma);
+            console.log(index);
+            var id = index;
+            return resultado = rsc[id];
+          }
+        }
+        var pontos = [-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
+        var rsc = [1.0, 1.1, 1.2, 1.5, 1.7, 2.0, 2.4, 2.5, 3.3, 3.9, 4.5, 5.3, 6.3, 7.3, 8.6, 10, 11.7, 13.7, 15.9, 18.5, 21.6, 24.8, 28.5, '>30', '>50'];
+        riscoGlobalM(pontos, soma, ateros);
+        console.log(resultado);
+        var risco = resultado;
+
+        /* Retorna o resultado estratificado - Mulher */
+        function resultadoEstratificadoM(risco) {
+          if (risco < 5) {
+            return msg = 'RISCO BAIXO: ' + risco + '%';
+
+          } else if (5 <= risco && risco < 10) {
+            return msg = 'RISCO INTERMEDIÁRIO: ' + risco + '%';
+
+          } else if (10 <= risco && risco < 30) {
+            return msg = 'RISCO ALTO: ' + risco + '%';
+
+          } else if (risco == '>30') {
+            return msg = 'RISCO ALTO: ' + risco + '%';
+
+          } else if (risco == '>50') {
+            return msg = 'RISCO MUITO ALTO: ' + risco + '%';
+          }
+        }
+        resultadoEstratificadoM(risco);
+        console.log(msg);
+        var mensagem = msg;
+
+        /* Direciona a mensagem, troca a cor e libera o modal */
+        var modal_bxo = document.querySelector('div.modal_bxo');
+        var modal_itr = document.querySelector('div.modal_itr');
+        var modal_alt = document.querySelector('div.modal_alt');
+        var modal_malt = document.querySelector('div.modal_malt');
+
+        function localMsg(risco, modal_bxo, modal_itr, modal_alt, modal_malt) {
+          if (risco < 5) {
+            document.getElementById("resultado-bxo").innerHTML = mensagem;
+            modal_bxo.style.display = 'block';
+
+          } else if (5 <= risco && risco < 10) {
+            document.getElementById("resultado-itr").innerHTML = mensagem;
+            modal_itr.style.display = 'block';
+
+          } else if (10 <= risco && risco < 30) {
+            document.getElementById("resultado-alt").innerHTML = mensagem;
+            modal_alt.style.display = 'block';
+
+          } else if (risco == '>30') {
+            document.getElementById("resultado-alt").innerHTML = mensagem;
+            modal_alt.style.display = 'block';
+
+          } else if (risco == '>50') {
+            document.getElementById("resultado-malt").innerHTML = mensagem;
+            modal_malt.style.display = 'block';
+          }
+        }
+        localMsg(risco, modal_bxo, modal_itr, modal_alt, modal_malt)
+
+        /* Inicio do Bloco Masculino */
+
+      } else if (sexo == 'Masculino') {
+
+        /* Calcula pontos Idade - Homem */
+        function pontosIdadeH(idade) {
+          if (30 <= idade && idade <= 34) {
+            return resultado = 0;
+          } else if (35 <= idade && idade <= 39) {
+            return resultado = 2;
+          } else if (40 <= idade && idade <= 44) {
+            return resultado = 5;
+          } else if (45 <= idade && idade <= 49) {
+            return resultado = 6;
+          } else if (50 <= idade && idade <= 54) {
+            return resultado = 8;
+          } else if (55 <= idade && idade <= 59) {
+            return resultado = 10;
+          } else if (60 <= idade && idade <= 64) {
+            return resultado = 11;
+          } else if (65 <= idade && idade <= 69) {
+            return resultado = 12;
+          } else if (70 <= idade && idade <= 74) {
+            return resultado = 14;
+          } else if (idade >= 75) {
+            return resultado = 15;
+          }
+        }
+        pontosIdadeH(idade);
+        console.log(resultado);
+        var pts_ideh = resultado;
+
+        /* Calcula pontos Colesterol Total - Homem */
+        function pontosColTotH(col_tot) {
+          if (col_tot < 160) {
+            return resultado = 0;
+          } else if (160 <= col_tot && col_tot <= 199) {
+            return resultado = 1;
+          } else if (200 <= col_tot && col_tot <= 239) {
+            return resultado = 2;
+          } else if (240 <= col_tot && col_tot <= 279) {
+            return resultado = 3;
+          } else if (col_tot >= 280) {
+            return resultado = 4;
+          }
+        }
+        pontosColTotH(col_tot);
+        console.log(resultado);
+        var pts_colt = resultado;
+
+        /* Calcula pontos Colesterol HDL - Homem */
+        function pontosColHdlH(col_hdl) {
+          if (col_hdl >= 60) {
+            return resultado = -2;
+          } else if (50 <= col_hdl && col_hdl <= 59) {
+            return resultado = -1;
+          } else if (45 <= col_hdl && col_hdl <= 49) {
+            return resultado = 0;
+          } else if (35 <= col_hdl && col_hdl <= 44) {
+            return resultado = 1;
+          } else if (col_hdl < 35) {
+            return resultado = 2;
+          }
+        }
+        pontosColHdlH(col_hdl);
+        console.log(resultado);
+        var pts_colh = resultado;
+
+        /* Calcula pontos Pressão Tratada - Homem */
+        function pontosPresTratH(pressao) {
+          if (pressao < 120) {
+            return resultado = 0;
+          } else if (120 <= pressao && pressao <= 129) {
+            return resultado = 2;
+          } else if (130 <= pressao && pressao <= 139) {
+            return resultado = 3;
+          } else if (140 <= pressao && pressao <= 159) {
+            return resultado = 4;
+          } else if (pressao >= 160) {
+            return resultado = 5;
+          }
+        }
+        pontosPresTratH(pressao);
+        console.log(resultado);
+        var res_pst = resultado;
+
+        /* Calcula pontos Pressão não Tratada - Homem */
+        function pontosPresNTratH(pressao) {
+          if (pressao < 120) {
+            return resultado = -2;
+          } else if (120 <= pressao && pressao <= 129) {
+            return resultado = 0;
+          } else if (130 <= pressao && pressao <= 139) {
+            return resultado = 1;
+          } else if (140 <= pressao && pressao <= 159) {
+            return resultado = 2;
+          } else if (pressao >= 160) {
+            return resultado = 3;
+          }
+        }
+        pontosPresNTratH(pressao);
+        console.log(resultado);
+        var res_psn = resultado;
+
+        /* Calcula pontos Totais - Homem: Arranjo com repetição de n elementos tomados de p em p -> Ar(n,p) = n^p, onde n=2 (sim e não) e p=3 (posições no agrupamento). Portanto, Ar(n,p) = 2^3 = 8 */
+        function pontosTotalH(pts_ideh, pts_colt, pts_colh, fumante, res_pst, res_psn, tratamento, diabetes) {
+          if (fumante == 'Sim' && tratamento == 'Sim' && diabetes == 'Sim') {
+            return resultado = pts_ideh + pts_colt + pts_colh + 4 + res_pst + 3;    // pontuação fumante Sim=4 e diabetes Sim=3
+
+          } else if (fumante == 'Nao' && tratamento == 'Sim' && diabetes == 'Sim') {
+            return resultado = pts_ideh + pts_colt + pts_colh + 0 + res_pst + 3;
+
+          } else if (fumante == 'Sim' && tratamento == 'Nao' && diabetes == 'Sim') {
+            return resultado = pts_ideh + pts_colt + pts_colh + 4 + res_psn + 3;
+
+          } else if (fumante == 'Sim' && tratamento == 'Sim' && diabetes == 'Nao') {
+            return resultado = pts_ideh + pts_colt + pts_colh + 4 + res_pst + 0;
+
+          } else if (fumante == 'Nao' && tratamento == 'Nao' && diabetes == 'Nao') {
+            return resultado = pts_ideh + pts_colt + pts_colh + 0 + res_psn + 0;       // pontuação fumante Nao=0 e diabetes Nao=0
+
+          } else if (fumante == 'Sim' && tratamento == 'Nao' && diabetes == 'Nao') {
+            return resultado = pts_ideh + pts_colt + pts_colh + 4 + res_psn + 0;
+
+          } else if (fumante == 'Nao' && tratamento == 'Sim' && diabetes == 'Nao') {
+            return resultado = pts_ideh + pts_colt + pts_colh + 0 + res_pst + 0;
+
+          } else if (fumante == 'Nao' && tratamento == 'Nao' && diabetes == 'Sim') {
+            return resultado = pts_ideh + pts_colt + pts_colh + 0 + res_psn + 3;
+          }
+        }
+        pontosTotalH(pts_ideh, pts_colt, pts_colh, fumante, res_pst, res_psn, tratamento, diabetes);
+        console.log(resultado);
+        var soma = resultado;
+
+        /* Determina o Risco Global em % - Homem*/
+        function riscoGlobalH(pontos, soma, ateros) {
+          if (soma >= 18) {
+            return resultado = rsc[21];
+
+          } else if (ateros == 'Sim') {
+            return resultado = rsc[22];
+
+          } else if (soma < 18) {
+            const index = pontos.findIndex((ponto) => ponto == soma);
+            console.log(index);
+            var id = index;
+            return resultado = rsc[id];
+          }
+        }
+        var pontos = [-3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+        var rsc = [1, 1.1, 1.4, 1.6, 1.9, 2.3, 2.8, 3.3, 3.9, 4.7, 5.6, 6.7, 7.9, 9.4, 11.2, 13.2, 15.6, 18.4, 21.6, 25.3, 29.4, '>30', '>50'];
+        riscoGlobalH(pontos, soma, ateros);
+        console.log(resultado);
+        var risco = resultado;
+
+        /* Retorna o resultado estratificado - Homem */
+        function resultadoEstratificadoH(risco) {
+          if (risco < 5) {
+            return msg = 'RISCO BAIXO: ' + risco + '%';
+
+          } else if (5 <= risco && risco < 20) {
+            return msg = 'RISCO INTERMEDIÁRIO: ' + risco + '%';
+
+          } else if (20 <= risco && risco < 30) {
+            return msg = 'RISCO ALTO: ' + risco + '%';
+
+          } else if (risco == '>30') {
+            return msg = 'RISCO ALTO: ' + risco + '%';
+
+          } else if (risco == '>50') {
+            return msg = 'RISCO MUITO ALTO: ' + risco + '%';
+          }
+        }
+        resultadoEstratificadoH(risco);
+        console.log(msg);
+        var mensagem = msg;
+
+        /* Direciona a mensagem, troca a cor e libera o modal */
+        var modal_bxo = document.querySelector('div.modal_bxo');
+        var modal_itr = document.querySelector('div.modal_itr');
+        var modal_alt = document.querySelector('div.modal_alt');
+        var modal_malt = document.querySelector('div.modal_malt');
+
+        function localMsg(risco, modal_bxo, modal_itr, modal_alt, modal_malt) {
+          if (risco < 5) {
+            document.getElementById("resultado-bxo").innerHTML = mensagem;
+            modal_bxo.style.display = 'block';
+
+          } else if (5 <= risco && risco < 20) {
+            document.getElementById("resultado-itr").innerHTML = mensagem;
+            modal_itr.style.display = 'block';
+
+          } else if (20 <= risco && risco < 30) {
+            document.getElementById("resultado-alt").innerHTML = mensagem;
+            modal_alt.style.display = 'block';
+
+          } else if (risco == '>30') {
+            document.getElementById("resultado-alt").innerHTML = mensagem;
+            modal_alt.style.display = 'block';
+
+          } else if (risco == '>50') {
+            document.getElementById("resultado-malt").innerHTML = mensagem;
+            modal_malt.style.display = 'block';
+          }
+        }
+        localMsg(risco, modal_bxo, modal_itr, modal_alt, modal_malt);
+      }
+
+      /* Desabilita o botão após click e reposiciona a tela no topo */
+      function disableBtn(risco) {
+        if (risco != 0) {
+          document.getElementById("btn_escore").disabled = "true";
+          window.scrollTo(0, 0);
+        }
+      }
+      disableBtn(risco);
+
+
+      /* Cria um evento a partir botão "enviar resultado por e-mail", oculta o modal-bxo e libera o modal do formulário de contato */
+
+      var modal_email = document.querySelector('form.modal_email');
+
+      document.getElementById('btn-modal-bxo').addEventListener('click', function (e) {
+        e.preventDefault();
+
+        function modalbxoEmail(risco) {
+          if (risco !== 0) {
+            modal_bxo.style.display = 'none';
+            modal_email.style.display = 'block';
+          }
+        }
+        modalbxoEmail(risco);
+      })
+
+      /* Cria um evento a partir botão "enviar resultado por e-mail", oculta o modal-itr e libera o modal do formulário de contato */
+      document.getElementById('btn-modal-itr').addEventListener('click', function (e) {
+        e.preventDefault();
+
+        function modalitrEmail(risco) {
+          if (risco !== 0) {
+            modal_itr.style.display = 'none';
+            modal_email.style.display = 'block';
+          }
+        }
+        modalitrEmail(risco);
+      })
+
+      /* Cria um evento a partir botão "enviar resultado por e-mail", oculta o modal-alt e libera o modal do formulário de contato */
+      document.getElementById('btn-modal-alt').addEventListener('click', function (e) {
+        e.preventDefault();
+
+        function modalaltEmail(risco) {
+          if (risco !== 0) {
+            modal_alt.style.display = 'none';
+            modal_email.style.display = 'block';
+          }
+        }
+        modalaltEmail(risco);
+      })
+
+      /* Cria um evento a partir botão "enviar resultado por e-mail", oculta o modal-malt e libera o modal do formulário de contato */
+      document.getElementById('btn-modal-malt').addEventListener('click', function (e) {
+        e.preventDefault();
+
+        function modalmaltEmail(risco) {
+          if (risco !== 0) {
+            modal_malt.style.display = 'none';
+            modal_email.style.display = 'block';
+          }
+        }
+        modalmaltEmail(risco);
+      })
+
+      /* Cria um evento a partir "botão enviar resultado", envia o e-mail e retorna ao inicio */
+      document.getElementById('formEmail').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        /* Captura os Valores do Formulário de E-mail */
+        const name = document.querySelector('#form-nome');
+        value = name.value;
+        var nome = value;
+        console.log(nome);
+
+        const mail = document.querySelector('#form-email');
+        value = mail.value;
+        var email = value;
+        console.log(email);
+
+        const cto = document.querySelector('#form-contato');
+        value = cto.value;
+        var contato = value;
+        console.log(contato);
+
+        /* Sugestão de Função pra mandar e-mail */
+        /*function sendEmail() {
+          Email.send({
+          Host: "smtp.gmail.com",
+          Username: "sender@email_address.com",
+          Password: "Enter your password",
+          To: 'receiver@email_address.com',
+          From: email,
+          Subject: "Resultado - Escore de Risco Global",
+          Body: mensagem, // a variavel mensagem contem o valor do resultado final, ver linha 408 (mulher) ou 637(homem)
+        })
+        .then(function (message) {
+          alert("mail sent successfully")
+          })
+        }*/
+      })
+    })
+
+  </script>
+
+  <!-- Sugestão Biblioteca JavaScript envio de e-mail <script src="https://smtpjs.com/v3/smtp.js" ></script> -->
+
+  <!-- Fim do Bloco 3, que inicia na linha 176 -->
+
+</body>
+
+</html>
