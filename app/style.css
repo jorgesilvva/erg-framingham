@@ -1,0 +1,183 @@
+* body {
+  margin: 0;
+  background-color: #ffffff;
+  font-family: sans-serif;
+  scroll-behavior: smooth;
+}
+
+h1 {
+  font-family: verdana;
+  font-weight: normal;
+  font-size: 18px;
+  color: #777;
+}
+
+h2 {
+  font-family: verdana;
+  font-weight: normal;
+  font-size: 18px;
+  color: #2e6da4;
+}
+
+.containerForm {
+  width: 88%;
+  background-color: #ffffff;
+  font-size: 14px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.modal_bxo {
+  display: none;
+  padding: 1.8em;
+  background-color: #c1e7bb;
+  font-size: 14px;
+  color: #2e6da4;
+  margin: auto auto 2em auto;
+  border: 1px solid transparent;
+  border-radius: 6px;
+}
+
+.modal_itr {
+  display: none;
+  padding: 1.8em;
+  background-color: #ffff99;
+  font-size: 14px;
+  color: #2e6da4;
+  margin: auto auto 2em auto;
+  border: 1px solid transparent;
+  border-radius: 6px;
+}
+
+.modal_alt {
+  display: none;
+  padding: 1.8em;
+  background-color: #ffbdb9;
+  font-size: 14px;
+  color: #2e6da4;
+  margin: auto auto 2em auto;
+  border: 1px solid transparent;
+  border-radius: 6px;
+}
+
+.modal_malt {
+  display: none;
+  padding: 1.8em;
+  background-color: #ff261b;
+  font-size: 14px;
+  color: #2e6da4;
+  margin: auto auto 2em auto;
+  border: 1px solid transparent;
+  border-radius: 6px;
+}
+
+.modal_email {
+  display: none;
+  padding: 1.8em;
+  background-color: #e4eeee;
+  font-size: 14px;
+  color: #777;
+  margin: auto auto 2em auto;
+  border: 1px solid transparent;
+  border-radius: 6px;
+}
+
+.form-Escore {
+  background-color: #ffffff;
+  color: #777;
+}
+
+input[type="text"] {
+  margin: .3em 0 .7em 0;
+  width: 100%;
+  height: 32px;
+  border: 1px solid #CCCCCC;
+  outline-color: #719ECE;
+  border-radius: 6px;
+}
+
+input[type="text"]::placeholder {
+  font-family: Arial;
+  color: #CCCCCC;
+  padding-left: 5px;
+}
+
+input[type="email"] {
+  margin: .3em 0 .7em 0;
+  width: 100%;
+  height: 32px;
+  border: 1px solid #CCCCCC;
+  outline-color: #719ECE;
+  border-radius: 6px;
+}
+
+input[type="email"]::placeholder {
+  font-family: Arial;
+  color: #CCCCCC;
+  padding-left: 5px;
+}
+
+input[type="tel"] {
+  margin: .3em 0 .7em 0;
+  width: 100%;
+  height: 32px;
+  border: 1px solid #CCCCCC;
+  outline-color: #719ECE;
+  border-radius: 6px;
+}
+
+input[type="tel"]::placeholder {
+  font-family: Arial;
+  color: #CCCCCC;
+  padding-left: 5px;
+}
+
+input[type="number"] {
+  margin: .3em 0 .7em 0;
+  width: 100%;
+  height: 32px;
+  border: 1px solid #CCCCCC;
+  outline-color: #719ECE;
+  border-radius: 6px;
+}
+
+input[type="number"]::placeholder {
+  font-family: Arial;
+  color: #CCCCCC;
+  padding-left: 5px;
+}
+
+/* Chrome, Safari, Edge, Opera: remover setas do input number */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+/* Firefox: remover setas do input number */
+input[type=number] {
+  -moz-appearance: "textfield";
+}
+
+input[type="radio"] {
+  margin: .7em 0 1em 0;
+}
+
+button {
+  padding: 15px 20px;
+  background-color: #337ab7;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2e6da4;
+  color: white;
+}
